@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_res_config_settings_auto_process" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.auto.process</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//app[@name='sale_management']" position="inside">
+                <block title="Automatic Sales Process" name="auto_workflow_setting_container">
+                    <setting id="auto_validate_delivery_setting"
+                             string="Auto Validate Delivery"
+                             help="Automatically validate delivery orders on Sales Order confirmation.">
+                        <field name="auto_validate_delivery"/>
+                    </setting>
+
+                    <setting id="auto_sale_invoice_option"
+                             string="Auto Sale Invoice"
+                             help="Automatically generate invoice, post, and optionally register payment on Sales Order confirmation.">
+                        <field name="auto_invoice_action"/>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>
