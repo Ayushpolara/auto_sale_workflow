@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inherit Sale Order Form View -->
+    <record id="view_order_form_auto_workflow" model="ir.ui.view">
+        <field name="name">sale.order.form.auto.workflow</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <!-- Add Auto Workflow section after other_info notebook -->
+            <xpath expr="//notebook" position="inside">
+                <page string="Auto Workflow" name="auto_workflow">
+                    <group>
+                        <group string="Workflow Configuration">
+                            <field name="auto_workflow_enabled"/>
+                            <field name="auto_validate_delivery_order"
+                                   invisible="not auto_workflow_enabled"/>
+                            <field name="auto_invoice_policy"
+                                   invisible="not auto_workflow_enabled"/>
+                        </group>
+                        <group string="Additional Settings" invisible="not auto_workflow_enabled">
+                            <field name="payment_journal_id"
+                                   invisible="not auto_workflow_enabled or auto_invoice_policy != 'register'"/>
+                        </group>
+                    </group>
+                    <group invisible="not auto_workflow_enabled">
+                        <div class="alert alert-info" role="alert">
+                            <p>
+                                <strong>Auto Workflow Information:</strong>
+                            </p>
+                            <ul>
+                                <li>When you confirm this order, automatic actions will be executed based on your
+                                    configuration.
+                                </li>
+                                <li>
+                                    <strong>Auto Validate Delivery:</strong>
+                                    Delivery orders will be validated automatically.
+                                </li>
+                                <li>
+                                    <strong>Auto Invoice:</strong>
+                                    Invoices will be created/posted/paid based on selected policy.
+                                </li>
+                            </ul>
+                        </div>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
