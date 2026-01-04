@@ -22,7 +22,7 @@ This module helps businesses save time by automating repetitive sales operations
     """,
     'author': 'Ayush Polara',
     'website': 'http://in.linkedin.com/in/ayush-polara-017b4b221',
-    'license': 'OPL-1',
+    'license': 'LGPL-3',
     'depends': ['sale_management', 'stock', 'account'],
     'data': [
         'security/ir.model.access.csv',
@@ -33,6 +33,6 @@ This module helps businesses save time by automating repetitive sales operations
     'installable': True,
     'application': False,
     'auto_install': False,
-    'price': 5.00,
+    'price': 0.00,
     'currency': 'EUR',
 }
